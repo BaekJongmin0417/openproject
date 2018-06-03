@@ -1,6 +1,6 @@
 create table userinfo(
 	uid mediumint not null auto_increment primary key,
-    uname varchar(10) default 'null',
+    uname varchar(20) default 'null',
     upnum char(20) not null unique,
     uimg varchar(10) not null default '1',
     utsize char(5) not null default '10'
@@ -24,7 +24,7 @@ create table groupuser(
 
 create table todo(
 tid mediumint not null auto_increment primary key,
-tname varchar(15) default 'null',
+tname varchar(20) default 'null',
 tgid mediumint default NULL,
 tuid mediumint default NULL,
 tallday smallint default 0,
