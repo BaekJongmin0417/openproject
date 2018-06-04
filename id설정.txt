@@ -1,0 +1,42 @@
+**xml -> java
+
+//상단 버튼
+1)홈
+myHome 
+2)개인일정
+mySelf -> btn_mySelf
+3)그룹일정
+myGroup -> btn_myGroup
+
+//하단 버튼
+1) 일정 생성 버튼
+makeS -> btn_MakeS
+2) 일정 등록 버튼
+RegisterS -> btn_RegisterS
+3) 일정 취소 버튼
+CancelS -> btn_CancelS
+
+//일정 생성 (종류)
+1) dDay (switch)
+list_dDay 
+select_dDay -> btn_dDay
+2) title (editText)
+select_title ->
+3) date (datePicker)
+list_date 
+select_date -> btn_date
+4) allDay (switch)
+list_allDay -> show_allDay
+select_allDay -> btn_allDay
+5) startTime (timePicker)
+list_startTime -> show_startTime
+select_startTime -> btn_endTime
+6) endTime (timePicker) 
+list_endTime -> show_endTime
+select_endTime -> btn_endTime
+7) calendar (toggleButton)
+list_calendar -> show_calendar
+select_calendar -> btn_calendar
+8) group (spinner) 
+list_group -> show_group
+select_group -> btn_group
