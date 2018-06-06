@@ -1,5 +1,6 @@
 package opensourceteamproject.calendar;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -16,8 +17,9 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-public class SchedulingActivity extends AppCompatActivity {
+public class Scheduling_MySelf extends AppCompatActivity {
     FloatingActionButton btn_RegisterS,btn_CancelS;
+
     Switch btn_dDay,btn_allDay;
     TimePicker btn_startTime,btn_endTime;
     DatePicker btn_date;
@@ -31,26 +33,31 @@ public class SchedulingActivity extends AppCompatActivity {
 
         Toolbar toolbar=(android.support.v7.widget.Toolbar)findViewById(R.id.Toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setBackgroundColor(Color.rgb(93,181,164));
+        toolbar.setTitleTextColor(Color.WHITE);
 
         btn_RegisterS=(FloatingActionButton)findViewById(R.id.RegisterS);
         btn_RegisterS.setOnClickListener(RegisterSClickListener);
         btn_CancelS=(FloatingActionButton)findViewById(R.id.CancelS);
         btn_CancelS.setOnClickListener(CancelSClickListener);
 
+        btn_RegisterS.setRippleColor(Color.rgb(93,181,164));
+        btn_CancelS.setRippleColor(Color.rgb(93,181,164));
+
         //일정 생성
-        btn_dDay=(Switch)findViewById(R.id.select_dDay);
+        btn_dDay=(Switch)findViewById(R.id.select_dDay);    btn_dDay.setChecked(true);
         btn_date=(DatePicker)findViewById(R.id.select_date);
-        btn_allDay=(Switch)findViewById(R.id.select_allDay);
+        btn_allDay=(Switch)findViewById(R.id.select_allDay);    btn_allDay.setChecked(true);
         btn_startTime=(TimePicker) findViewById(R.id.select_startTime);
         btn_endTime=(TimePicker) findViewById(R.id.select_endTime);
-        btn_calendar=(ToggleButton)findViewById(R.id.select_calendar);
+        btn_calendar=(ToggleButton)findViewById(R.id.select_calendar);  btn_calendar.setChecked(true);
         btn_group=(Spinner)findViewById(R.id.select_group);
 
-        show_allDay=(LinearLayout)findViewById(R.id.list_allDay);
-        show_startTime=(LinearLayout)findViewById(R.id.list_startTime);
-        show_endTime=(LinearLayout)findViewById(R.id.list_endTime);
-        show_calendar=(LinearLayout)findViewById(R.id.list_calendar);
-        show_group=(LinearLayout)findViewById(R.id.list_group);
+        show_allDay=(LinearLayout)findViewById(R.id.list_allDay);   show_allDay.setVisibility(View.GONE);
+        show_startTime=(LinearLayout)findViewById(R.id.list_startTime); show_startTime.setVisibility(View.GONE);
+        show_endTime=(LinearLayout)findViewById(R.id.list_endTime); show_endTime.setVisibility(View.GONE);
+        show_calendar=(LinearLayout)findViewById(R.id.list_calendar);   show_calendar.setVisibility(View.VISIBLE);
+        show_group=(LinearLayout)findViewById(R.id.list_group); show_group.setVisibility(View.GONE);
 
 
         btn_date.getDayOfMonth(); //일, 정수형
@@ -71,7 +78,7 @@ public class SchedulingActivity extends AppCompatActivity {
 
 
         final String[] Group={"오픈소스","데베","컴그"};
-        ArrayAdapter<String> adapter_group=new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,Group);
+        ArrayAdapter<String> adapter_group=new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,Group);
         //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         btn_group.setAdapter(adapter_group);
     }
@@ -85,7 +92,6 @@ public class SchedulingActivity extends AppCompatActivity {
     View.OnClickListener RegisterSClickListener=new View.OnClickListener(){
         public void onClick(View v){
             Toast.makeText(getApplicationContext(),"새로운 일정이 생성되었습니다.",Toast.LENGTH_SHORT).show();
-
             finish();
         }
     };

@@ -5,19 +5,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="#FFF">
+    tools:context=".MySelfActivity"
+    android:background="#FFF" >
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/Toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <LinearLayout
-            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="top|start"
@@ -57,6 +56,7 @@
         android:layout_width="match_parent"
         android:layout_height="30dp"
         app:layout_constraintTop_toBottomOf="@+id/Toolbar">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -64,21 +64,16 @@
             android:text="@string/개인일정보기" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight="1"
-        app:layout_constraintTop_toBottomOf="@+id/Title">
-
-        <ListView
+    <ListView
             android:id="@+id/list_mySelf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginStart="20dp">
-        </ListView>
-    </LinearLayout>
+            android:layout_marginStart="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/Title">
+    </ListView>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/MakeS"
